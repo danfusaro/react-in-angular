@@ -5,7 +5,7 @@ in a simple way and without any complex 3rd party libraries.
 
 Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angular-the-easy-way-60f796b68aef
 
-## Using in other projects
+## Overview
 1. Add dependencies
 ```
 "dependencies": {
