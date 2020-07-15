@@ -75,7 +75,8 @@ import * as React from "react";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import {
   ReactWrapperComponent,
-  reactWrapperMetadata,
+  template,
+  encapsulation
 } from "src/app/components/react-wrapper/react-wrapper.component";
 import { IncrementForm } from "src/react/IncrementForm";
 
@@ -84,7 +85,8 @@ import { IncrementForm } from "src/react/IncrementForm";
   // Need to re-import React component's style sheet
   styleUrls: ["./../../../react/IncrementForm.scss"],
   // Must inherit metadata from wrapper component
-  ...reactWrapperMetadata,
+  template,
+  encapsulation
 })
 export class IncrementFormWrapperComponent extends ReactWrapperComponent {
   @Input() public counter;
