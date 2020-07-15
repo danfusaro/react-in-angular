@@ -1,12 +1,13 @@
 # Embedding React in Angular (as of 7/2020 - version 8.0)
 
-This project shows how to embed a React component within an Angular application, 
-in a simple way and without any complex 3rd party libraries. 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
 
 Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angular-the-easy-way-60f796b68aef
 
 ## Overview
+
 1. Add dependencies to `package.json`
+
 ```
 "dependencies": {
     ...
@@ -22,16 +23,18 @@ Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angul
 }
 ```
 
-
 2. Update `tsconfig.json`
+
 ```
 {
-     ... 
+     ...
      "jsx": "react",
      ...
 }
 ```
+
 3. Add CommonJS support for react in `angular.json`
+
 ```
 "build": {
   "builder": "@angular-devkit/build-angular:browser",
@@ -47,6 +50,7 @@ Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angul
 ```
 
 4. Add CUSTOM_ELEMENTS_SCHEMA to `app.module.ts`
+
 ```
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; // Import CUSTOM_ELEMENTS_SCHEMA
@@ -65,6 +69,7 @@ export class AppModule {}
 ```
 
 5. Extend `ReactWrapperComponent`, add url to React component's style sheet., add metadata values (`...reactWrapperMetadata`):
+
 ```
 import * as React from "react";
 import { Component, EventEmitter, Input, Output } from "@angular/core";

@@ -5,22 +5,20 @@ import {
   ViewChild,
   ViewEncapsulation,
   DoCheck,
-} from "@angular/core";
-import * as ReactDOM from "react-dom";
+} from '@angular/core';
+import * as ReactDOM from 'react-dom';
 
-const containerElementName = "reactWrapper";
+const containerElementName = 'reactWrapper';
 
-export const reactWrapperMetadata = {
-  template: `<div #${containerElementName}></div>`,
-  encapsulation: ViewEncapsulation.None,
-};
+export const template = `<div #${containerElementName}>hi charles</div>`;
+export const encapsulation = ViewEncapsulation.None;
 
 @Component({
-  selector: "app-react-wrapper",
-  ...reactWrapperMetadata,
+  template,
+  encapsulation,
 })
 export class ReactWrapperComponent implements OnDestroy, DoCheck {
-  @ViewChild(containerElementName, { static: false }) containerRef: ElementRef;
+  @ViewChild(containerElementName, { static: true }) containerRef: ElementRef;
 
   ngOnDestroy() {
     ReactDOM.unmountComponentAtNode(this.containerRef.nativeElement);
@@ -33,7 +31,7 @@ export class ReactWrapperComponent implements OnDestroy, DoCheck {
   }
 
   protected render(): JSX.Element {
-    throw new Error("Must be implemented in sub-class");
+    throw new Error('Must be implemented in sub-class');
   }
 
   private doRender() {
