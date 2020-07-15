@@ -1,27 +1,106 @@
-# ReactInAngular
+# Embedding React in Angular (as of 7/2020 - version 8.0)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
 
-## Development server
+Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angular-the-easy-way-60f796b68aef
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Overview
 
-## Code scaffolding
+1. Add dependencies to `package.json`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+"dependencies": {
+    ...
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    ...
+  },
+"devDependencies": {
+    ...
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    ...
+}
+```
 
-## Build
+2. Update `tsconfig.json`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+{
+     ...
+     "jsx": "react",
+     ...
+}
+```
 
-## Running unit tests
+3. Add CommonJS support for react in `angular.json`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+"build": {
+  "builder": "@angular-devkit/build-angular:browser",
+  "options": {
+     "allowedCommonJsDependencies": [
+        "react",
+        "react-dom"
+     ]
+     ...
+   }
+   ...
+},
+```
 
-## Running end-to-end tests
+4. Add CUSTOM_ELEMENTS_SCHEMA to `app.module.ts`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; // Import CUSTOM_ELEMENTS_SCHEMA
 
-## Further help
+import { AppComponent } from './app.component';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // Add to schemas array
+  imports: [BrowserModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+5. Extend `ReactWrapperComponent`, add url to React component's style sheet., add metadata values (`...reactWrapperMetadata`):
+
+```
+import * as React from "react";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  ReactWrapperComponent,
+  reactWrapperMetadata,
+} from "src/app/components/react-wrapper/react-wrapper.component";
+import { IncrementForm } from "src/react/IncrementForm";
+
+@Component({
+  selector: "app-increment-form",
+  // Need to re-import React component's style sheet
+  styleUrls: ["./../../../react/IncrementForm.scss"],
+  // Must inherit metadata from wrapper component
+  ...reactWrapperMetadata,
+})
+export class IncrementFormWrapperComponent extends ReactWrapperComponent {
+  @Input() public counter;
+  @Output() public onClick = new EventEmitter<number>();
+
+  render(): JSX.Element {
+    return (
+      <IncrementForm
+        counter={this.counter}
+        onClick={(increment: number) => this.onClick.emit(increment)}
+      />
+    );
+  }
+}
+```
+
+## Run
+
+Run `ng serve`
