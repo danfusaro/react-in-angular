@@ -6,7 +6,7 @@ in a simple way and without any complex 3rd party libraries.
 Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angular-the-easy-way-60f796b68aef
 
 ## Overview
-1. Add dependencies
+1. Add dependencies to `package.json`
 ```
 "dependencies": {
     ...
@@ -22,6 +22,7 @@ Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angul
 }
 ```
 
+
 2. Update `tsconfig.json`
 ```
 {
@@ -30,8 +31,22 @@ Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angul
      ...
 }
 ```
+3. Add CommonJS support for react in `angular.json`
+```
+"build": {
+  "builder": "@angular-devkit/build-angular:browser",
+  "options": {
+     "allowedCommonJsDependencies": [
+        "react",
+        "react-dom"
+     ]
+     ...
+   }
+   ...
+},
+```
 
-3. Extend `ReactWrapperComponent`, add url to React component's style sheet., add metadata values (`...reactWrapperMetadata`):
+4. Extend `ReactWrapperComponent`, add url to React component's style sheet., add metadata values (`...reactWrapperMetadata`):
 ```
 import * as React from "react";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
