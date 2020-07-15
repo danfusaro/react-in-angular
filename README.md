@@ -1,4 +1,4 @@
-# Embedding React in Angular (10)
+# Embedding React in Angular (as of 7/2020 - version 8.0)
 
 This project shows how to embed a React component within an Angular application, 
 in a simple way and without any complex 3rd party libraries. 
