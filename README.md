@@ -32,27 +32,11 @@ Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angul
      "jsx": "react",
      ...
     }
-     
+
 }
 ```
 
-3. Add CommonJS support for react in `angular.json` to avoid compilation warnings around CommonJS (React libs, etc)
-
-```
-"build": {
-  "builder": "@angular-devkit/build-angular:browser",
-  "options": {
-     "allowedCommonJsDependencies": [
-        "react",
-        "react-dom"
-     ]
-     ...
-   }
-   ...
-},
-```
-
-4. Add CUSTOM_ELEMENTS_SCHEMA to `app.module.ts`
+3. Add CUSTOM_ELEMENTS_SCHEMA to `app.module.ts`
 
 ```
 import { BrowserModule } from '@angular/platform-browser';
@@ -71,8 +55,9 @@ import { AppComponent } from './app.component';
 export class AppModule {}
 ```
 
-5. Extend `ReactWrapperComponent`, add url to React component's style sheet., add metadata values (`...reactWrapperMetadata`).
-_Any Angular components that contain JSX code must have a `*.jsx` extension_
+4. Extend `ReactWrapperComponent`, add url to React component's style sheet., add metadata values (`...reactWrapperMetadata`).
+   _Any Angular components that contain JSX code must have a `*.jsx` extension_
+
 ```
 import * as React from "react";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
