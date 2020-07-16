@@ -27,13 +27,16 @@ Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angul
 
 ```
 {
+    "compilerOptions": {
      ...
      "jsx": "react",
      ...
+    }
+     
 }
 ```
 
-3. Add CommonJS support for react in `angular.json`
+3. Add CommonJS support for react in `angular.json` to avoid compilation warnings around CommonJS (React libs, etc)
 
 ```
 "build": {
