@@ -27,13 +27,16 @@ Inspiration: https://medium.com/@zacky_14189/embedding-react-components-in-angul
 
 ```
 {
+    "compilerOptions": {
      ...
      "jsx": "react",
      ...
+    }
+     
 }
 ```
 
-3. Add CommonJS support for react in `angular.json`
+3. Add CommonJS support for react in `angular.json` to avoid compilation warnings around CommonJS (React libs, etc)
 
 ```
 "build": {
@@ -68,8 +71,8 @@ import { AppComponent } from './app.component';
 export class AppModule {}
 ```
 
-5. Extend `ReactWrapperComponent`, add url to React component's style sheet., add metadata values (`...reactWrapperMetadata`):
-
+5. Extend `ReactWrapperComponent`, add url to React component's style sheet., add metadata values (`...reactWrapperMetadata`).
+_Any Angular components that contain JSX code must have a `*.jsx` extension_
 ```
 import * as React from "react";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
