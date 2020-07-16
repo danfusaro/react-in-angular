@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ReactWrapperComponent } from './react-wrapper.component';
+import { ReactWrapperComponent } from "./react-wrapper.component";
 
-describe('ReactWrapperComponent', () => {
+describe("ReactWrapperComponent", () => {
   let component: ReactWrapperComponent;
   let fixture: ComponentFixture<ReactWrapperComponent>;
 
@@ -19,7 +19,7 @@ describe('ReactWrapperComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

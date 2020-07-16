@@ -1,9 +1,17 @@
 <div class="embedded-showcase">
   <h1>React embedded in Angular</h1>
   <div class="my-component-wrapper">
+    <h4>Styled using scss import in Angular wrapper</h4>
     <app-increment-form
       [counter]="counter"
       (onClick)="handleOnClick($event)"
     ></app-increment-form>
+  </div>
+  <div style="margin-top: 4rem;" class="my-component-wrapper">
+    <h4>Styled using jss in a React component</h4>
+    <app-increment-jss-form
+      [counter]="counter"
+      (onClick)="handleOnClick($event)"
+    ></app-increment-jss-form>
   </div>
 </div>

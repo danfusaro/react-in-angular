@@ -5,22 +5,23 @@ import {
   template,
   encapsulation,
 } from "../react-wrapper/react-wrapper.component";
-import { IncrementFormJss } from "../../../react/IncrementFormJss";
+import { IncrementForm } from "../../../react/IncrementForm";
 
 @Component({
-  selector: "app-increment-form",
+  selector: "app-increment-jss-form",
   // Need to re-import React component's style sheet
+  styleUrls: ["./../../../react/IncrementForm.scss"],
   // Must inherit metadata from wrapper component
   template,
   encapsulation,
 })
-export class IncrementFormWrapperComponent extends ReactWrapperComponent {
+export class IncrementFormJssWrapperComponent extends ReactWrapperComponent {
   @Input() public counter;
   @Output() public onClick = new EventEmitter<number>();
 
   render(): JSX.Element {
     return (
-      <IncrementFormJss
+      <IncrementForm
         counter={this.counter}
         onClick={(increment: number) => this.onClick.emit(increment)}
       />

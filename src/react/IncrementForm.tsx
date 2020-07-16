@@ -1,16 +1,14 @@
-import * as React from 'react';
-import { FunctionComponent, useState } from 'react';
+import * as React from "react";
+import { FunctionComponent, useState } from "react";
 
-import './IncrementForm.scss';
+import "./IncrementForm.scss";
 
-export interface IncrementFormProps {
+interface Props {
   counter: number;
   onClick?: (increment: number) => void;
 }
 
-export const IncrementForm: FunctionComponent<IncrementFormProps> = (
-  props: IncrementFormProps
-) => {
+export const IncrementForm: FunctionComponent<Props> = (props: Props) => {
   const [increment, setIncrement] = useState(1);
   const { counter: propsCounter, onClick } = props;
 
@@ -22,21 +20,21 @@ export const IncrementForm: FunctionComponent<IncrementFormProps> = (
 
   return (
     <div className={`my-graph-component`}>
-      <div className={'comp-props'}>
+      <div className={"comp-props"}>
         Props counter: {propsCounter}
         <button
           disabled={!increment}
           style={{ opacity: increment ? 1 : 0.5 }}
           onClick={handleClick}
-          className={'increase-button'}
+          className={"increase-button"}
         >
-          Click to {increment >= 0 ? 'add' : 'subtract'} {Math.abs(increment)}
+          Click to {increment >= 0 ? "add" : "subtract"} {Math.abs(increment)}
         </button>
       </div>
-      <div className={'comp-state'}>
-        Increment:{' '}
+      <div className={"comp-state"}>
+        Increment:{" "}
         <input
-          type='number'
+          type="number"
           min={-10}
           max={10}
           onChange={(e) => setIncrement(parseInt(e.target.value, 10) || 0)}
