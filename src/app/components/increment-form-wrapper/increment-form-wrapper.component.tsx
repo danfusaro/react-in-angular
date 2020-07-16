@@ -10,6 +10,7 @@ import { IncrementFormJss } from "../../../react/IncrementFormJss";
 @Component({
   selector: "app-increment-form",
   // Need to re-import React component's style sheet
+  styleUrls: ["./../../../react/IncrementForm.scss"],
   // Must inherit metadata from wrapper component
   template,
   encapsulation,
