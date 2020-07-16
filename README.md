@@ -69,7 +69,7 @@ export class AppModule {}
 ```
 
 5. Extend `ReactWrapperComponent`, add url to React component's style sheet., add metadata values (`...reactWrapperMetadata`):
-
+*Any Angular components that contain JSX code must have a `*.jsx` extension*
 ```
 import * as React from "react";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
