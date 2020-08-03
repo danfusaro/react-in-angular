@@ -5,6 +5,7 @@ import { AppComponent } from "./app.component";
 import { ReactWrapperComponent } from "./components/react-wrapper/react-wrapper.component";
 import { IncrementFormWrapperComponent } from "./components/increment-form-wrapper/increment-form-wrapper.component";
 import { IncrementFormJssWrapperComponent } from "./components/increment-form-wrapper/increment-form-wrapper-jss.component";
+import { DateTimeWrapperComponent } from "./components/date-time-wrapper/date-time-wrapper.component";
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { IncrementFormJssWrapperComponent } from "./components/increment-form-wr
     ReactWrapperComponent,
     IncrementFormWrapperComponent,
     IncrementFormJssWrapperComponent,
+    DateTimeWrapperComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [BrowserModule],
