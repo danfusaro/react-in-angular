@@ -5,7 +5,7 @@ import {
   template,
   encapsulation,
 } from "../react-wrapper/react-wrapper.component";
-import { IncrementForm } from "../../../react/IncrementForm";
+import { IncrementFormJss } from "../../../react/IncrementFormJss";
 
 @Component({
   selector: "app-increment-jss-form",
@@ -19,7 +19,7 @@ export class IncrementFormJssWrapperComponent extends ReactWrapperComponent {
 
   render(): JSX.Element {
     return (
-      <IncrementForm
+      <IncrementFormJss
         counter={this.counter}
         onClick={(increment: number) => this.onClick.emit(increment)}
       />

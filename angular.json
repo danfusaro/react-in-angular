@@ -90,7 +90,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "**/react-wrapper/**"]
           }
         },
         "e2e": {
@@ -108,5 +108,10 @@
       }
     }
   },
-  "defaultProject": "react-in-angular"
+  "defaultProject": "react-in-angular",
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false
+    }
+  }
 }

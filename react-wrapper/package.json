@@ -1,0 +1,30 @@
+{
+  "name": "react-wrapper",
+  "version": "0.0.0",
+  "description": "A blank schematics",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "dts": "npx -p dtsgenerator dtsgen ./src/react-wrapper/schema.json -o ./src/react-wrapper/schema.d.ts",
+    "test": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^10.0.5",
+    "@angular-devkit/schematics": "^10.0.5",
+    "clsx": "^1.1.1",
+    "prop-types": "^15.7.2",
+    "typescript": "~3.9.7"
+  },
+  "devDependencies": {
+    "@types/jasmine": "~3.5.0",
+    "@types/node": "^12.11.1",
+    "@types/prop-types": "^15.7.3",
+    "jasmine": "^3.5.0"
+  }
+}

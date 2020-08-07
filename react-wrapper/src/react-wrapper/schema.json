@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "ReactWrapperSchematics",
+  "title": "React Wrapper Schema",
+  "type": "object",
+  "description": "Wraps a React component with an Angular component",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Test 123 name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Who do you want to greet?"
+    }
+  },
+  "required": ["name"]
+}

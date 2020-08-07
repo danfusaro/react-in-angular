@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "react-wrapper": {
+      "description": "A blank schematic.",
+      "factory": "./react-wrapper/index#reactWrapper",
+      "schema": "./react-wrapper/schema.json"
+    }
+  }
+}

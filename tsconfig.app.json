@@ -2,8 +2,20 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "checkJs": false,
     "types": []
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/test.ts", "src/**/*.spec.ts"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js"],
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.*spec.ts",
+    "src/**/*.test.js",
+    "react-wrapper",
+    "e2e",
+    "node_modules",
+    "karma.conf.js"
+  ]
 }
